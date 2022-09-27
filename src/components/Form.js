@@ -20,57 +20,89 @@ class Form extends React.Component {
       <div>
         <span>Meu formulario</span>
         <form className="form">
-          <input
-            data-testid="name-input"
-            type="text"
-            value={ cardName }
-            onChange={ onInputChange }
-          />
-          <input
-            data-testid="description-input"
-            type="textarea"
-            value={ cardDescription }
-            onChange={ onInputChange }
-          />
-          <input
-            data-testid="cardAttr1-input"
-            type="number"
-            value={ cardAttr1 }
-            onChange={ onInputChange }
-          />
-          <input
-            data-testid="cardAttr2-input"
-            type="number"
-            value={ cardAttr2 }
-            onChange={ onInputChange }
-          />
-          <input
-            data-testid="cardAttr3-input"
-            type="number"
-            value={ cardAttr3 }
-            onChange={ onInputChange }
-          />
-          <input
-            data-testid="image-input"
-            type="text"
-            value={ cardImage }
-            onChange={ onInputChange }
-          />
-          <select
-            data-testid="rare-input"
-            value={ cardRare }
-            onChange={ onInputChange }
-          >
-            <option value="normal">Normal</option>
-            <option value="raro">Raro</option>
-            <option value="muito raro">Muito raro</option>
-          </select>
-          <input
-            data-testid="trunfo-input"
-            type="checkbox"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-          />
+          <label htmlFor="cardName">
+            cardName
+            <input
+              name="cardName"
+              data-testid="name-input"
+              type="text"
+              value={ cardName }
+              onChange={ onInputChange }
+            />
+          </label>
+          <label htmlFor="cardDescription">
+            cardDescription
+            <input
+              name="cardDescription"
+              data-testid="description-input"
+              type="textarea"
+              value={ cardDescription }
+              onChange={ onInputChange }
+            />
+          </label>
+          <label htmlFor="cardAttr1">
+            cardAttr1
+            <input
+              name="cardAttr1"
+              data-testid="cardAttr1-input"
+              type="number"
+              value={ cardAttr1 }
+              onChange={ onInputChange }
+            />
+          </label>
+          <label htmlFor="cardAttr2">
+            cardAttr2
+            <input
+              name="cardAttr2"
+              data-testid="cardAttr2-input"
+              type="number"
+              value={ cardAttr2 }
+              onChange={ onInputChange }
+            />
+          </label>
+          <label htmlFor="cardAttr3">
+            cardAttr3
+            <input
+              name="cardAttr3"
+              data-testid="cardAttr3-input"
+              type="number"
+              value={ cardAttr3 }
+              onChange={ onInputChange }
+            />
+          </label>
+          <label htmlFor="cardImage">
+            cardImage
+            <input
+              name="cardImage"
+              data-testid="image-input"
+              type="text"
+              value={ cardImage }
+              onChange={ onInputChange }
+            />
+          </label>
+          <label htmlFor="cardRare">
+            cardRare
+            <select
+              name="cardRare"
+              data-testid="rare-input"
+              value={ cardRare }
+              onChange={ onInputChange }
+            >
+              <option value="normal">Normal</option>
+              <option value="raro">Raro</option>
+              <option value="muito raro">Muito raro</option>
+            </select>
+          </label>
+          <label htmlFor="cardTrunfo">
+            cardTrunfo
+            <input
+              name="cardTrunfo"
+              data-testid="trunfo-input"
+              type="checkbox"
+              checked={ cardTrunfo }
+              onChange={ onInputChange }
+            />
+          </label>
           <button
             data-testid="save-button"
             type="button"
