@@ -62,6 +62,18 @@ class App extends React.Component {
     });
   };
 
+  onSaveButtonClick = () => {
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardRare: 'normal',
+    });
+  };
+
   render() {
     const {
       cardName,
