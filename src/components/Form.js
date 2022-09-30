@@ -11,11 +11,12 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
-      alreadyHadTrunfo,
+      // alreadyHadTrunfo,
       onSaveButtonClick } = this.props;
+    console.log(hasTrunfo);
 
     return (
       <div>
@@ -94,6 +95,7 @@ class Form extends React.Component {
               <option value="muito raro">Muito raro</option>
             </select>
           </label>
+
           {/* <label htmlFor="cardTrunfo">
             cardTrunfo
             <input
@@ -107,8 +109,8 @@ class Form extends React.Component {
 
           <label htmlFor="cardTrunfo">
             {
-              alreadyHadTrunfo()
-                ? 'Você já tem um Super Trunfo em seu baralho'
+              hasTrunfo
+                ? <p>Você já tem um Super Trunfo em seu baralho</p>
                 : (
                   <input
                     type="checkbox"
@@ -146,43 +148,11 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  // hasTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
-  alreadyHadTrunfo: PropTypes.func.isRequired,
+  // alreadyHadTrunfo: PropTypes.func.isRequired,
 };
 
 export default Form;
-
-// Uncaught TypeError: alreadyHadTrunfo is not a function
-//     at Form.render (bundle.js:sourcemap:576:21)
-//     at finishClassComponent (bundle.js:sourcemap:28605:35)
-//     at updateClassComponent (bundle.js:sourcemap:28555:28)
-//     at beginWork (bundle.js:sourcemap:30404:20)
-//     at HTMLUnknownElement.callCallback (bundle.js:sourcemap:13043:18)
-//     at Object.invokeGuardedCallbackDev (bundle.js:sourcemap:13092:20)
-//     at invokeGuardedCallback (bundle.js:sourcemap:13154:35)
-//     at beginWork$1 (bundle.js:sourcemap:36167:11)
-//     at performUnitOfWork (bundle.js:sourcemap:35300:16)
-//     at workLoopSync (bundle.js:sourcemap:35213:9)
-//  The above error occurred in the <Form> component:
-
-//     at Form (http://localhost:3000/static/js/bundle.js:408:1)
-//     at div
-//     at App (http://localhost:3000/static/js/bundle.js:31:5)
-
-// Consider adding an error boundary to your tree to customize error handling behavior.
-// Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
-// logCapturedError @ VM14 bundle.js:27586
-// VM14 bundle.js:35649 Uncaught TypeError: alreadyHadTrunfo is not a function
-//     at Form.render (bundle.js:sourcemap:576:21)
-//     at finishClassComponent (bundle.js:sourcemap:28605:35)
-//     at updateClassComponent (bundle.js:sourcemap:28555:28)
-//     at beginWork (bundle.js:sourcemap:30404:20)
-//     at beginWork$1 (bundle.js:sourcemap:36142:18)
-//     at performUnitOfWork (bundle.js:sourcemap:35300:16)
-//     at workLoopSync (bundle.js:sourcemap:35213:9)
-//     at renderRootSync (bundle.js:sourcemap:35182:11)
-//     at recoverFromConcurrentError (bundle.js:sourcemap:34590:24)
-//     at performConcurrentWorkOnRoot (bundle.js:sourcemap:34491:26)

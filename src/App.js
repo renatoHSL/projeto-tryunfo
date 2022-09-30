@@ -59,8 +59,11 @@ class App extends React.Component {
   };
 
   onInputChange = (event) => {
+    const value = event.target.type === 'checkbox'
+      ? event.target.checked : event.target.value;
+    console.log(value);
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: value,
     });
   };
 
@@ -76,12 +79,16 @@ class App extends React.Component {
   //   });
   // };
 
-  alreadyHadTrunfo = () => {
-    const { cardSaved } = this.state;
-    return cardSaved.some((card) => card.cardTrunfo === true);
-  };
+  // alreadyTrunfo = () => {
+  //   const { cardTrunfo, hasTrunfo } = this.state;
+  //   this.setState({ hasTrunfo: cardTrunfo || hasTrunfo }, () => {
+  //     // console.log(this.state.hasTrunfo);
+  //   });
+  // };
 
   onSaveButtonClick = () => {
+    // console.log(this.state.hasTrunfo);
+
     const {
       cardName,
       cardDescription,
@@ -94,6 +101,8 @@ class App extends React.Component {
       hasTrunfo,
       // cardSaved,
     } = this.state;
+    this.setState({ hasTrunfo: cardTrunfo || hasTrunfo }, () => {
+    });
     const newCard = {
       cardName,
       cardDescription,
@@ -114,10 +123,8 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      // hasTrunfo: '',
       cardSaved: [...prev.cardSaved, newCard],
     }));
-    // this.alreadyHadTrunfo();
   };
 
   render() {
@@ -130,6 +137,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       cardSaved,
     } = this.state;
@@ -145,11 +153,12 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-          quandoMudar={ this.handleChange }
+          hasTrunfo={ hasTrunfo }
+          // quandoMudar={ this.handleChange }
           onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ this.validation() }
           onSaveButtonClick={ this.onSaveButtonClick }
-          alreadyHadTrunfo={ this.alreadyHadTrunfo }
+          // alreadyTrunfo={ this.alreadyTrunfo }
         />
         <Card
           cardName={ cardName }
@@ -160,7 +169,7 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-          quandoMudar={ this.handleChange }
+          // quandoMudar={ this.handleChange }
           onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.onSaveButtonClick }
